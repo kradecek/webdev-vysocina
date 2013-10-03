@@ -43,6 +43,7 @@
     "extra": {
         "heroku": {
             "framework": "symfony2",
+            "document-root": "web",
             "index-document": "app.php"
         },    
         "symfony-app-dir": "app",
