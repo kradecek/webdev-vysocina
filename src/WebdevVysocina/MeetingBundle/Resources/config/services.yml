@@ -1,0 +1,7 @@
+parameters:
+#    webdev_vysocina_meeting.example.class: WebdevVysocina\MeetingBundle\Example
+
+services:
+#    webdev_vysocina_meeting.example:
+#        class: %webdev_vysocina_meeting.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

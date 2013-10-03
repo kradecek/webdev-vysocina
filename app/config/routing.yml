@@ -1,0 +1,4 @@
+webdev_vysocina_meeting:
+    resource: "@WebdevVysocinaMeetingBundle/Resources/config/routing.yml"
+    prefix:   /
+
