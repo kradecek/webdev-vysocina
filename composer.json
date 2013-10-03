@@ -41,7 +41,7 @@
     },
     "minimum-stability": "stable",
     "extra": {
-        heroku: {
+        "heroku": {
             "framework": "symfony2",
             "document-root": "web",
             "index-document": "app.php"
