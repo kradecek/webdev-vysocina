@@ -41,9 +41,11 @@
     },
     "minimum-stability": "stable",
     "extra": {
-        "framework": "symfony2",
-        "document-root": "web",
-        "index-document": "app.php",
+        heroku: {
+            "framework": "symfony2",
+            "document-root": "web",
+            "index-document": "app.php"
+        },    
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "incenteev-parameters": {
