@@ -42,7 +42,8 @@
     "minimum-stability": "stable",
     "extra": {
         "heroku": {
-            "framework": "symfony2"
+            "framework": "symfony2",
+            "index-document": "app.php"
         },    
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
