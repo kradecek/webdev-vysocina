@@ -18,6 +18,15 @@ use Symfony\Component\Debug\Debug;
 // }
 $filename = __DIR__.'/../app/bootstrap.php.cache';
 var_dump($filename, file_exists($filename));
+if ($handle = opendir( __DIR__.'/../app')) {
+    while (false !== ($entry = readdir($handle))) {
+        if ($entry != "." && $entry != "..") {
+            echo "$entry\n";
+        }
+    }
+    closedir($handle);
+}
+
 
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 Debug::enable();
