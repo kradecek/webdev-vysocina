@@ -9,22 +9,12 @@ use Symfony\Component\Debug\Debug;
 
 // This check prevents access to debug front controllers that are deployed by accident to production servers.
 // Feel free to remove this, extend it, or make something more sophisticated.
-// if (isset($_SERVER['HTTP_CLIENT_IP'])
-//     || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
-//     || !in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'fe80::1', '::1'))
-// ) {
-//     header('HTTP/1.0 403 Forbidden');
-//     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
-// }
-$filename = __DIR__.'/../app/bootstrap.php.cache';
-var_dump($filename, file_exists($filename));
-if ($handle = opendir( __DIR__.'/../app')) {
-    while (false !== ($entry = readdir($handle))) {
-        if ($entry != "." && $entry != "..") {
-            echo "$entry\n";
-        }
-    }
-    closedir($handle);
+if (isset($_SERVER['HTTP_CLIENT_IP'])
+    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+    || !in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'fe80::1', '::1'))
+) {
+    header('HTTP/1.0 403 Forbidden');
+    exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
 }
 
 
