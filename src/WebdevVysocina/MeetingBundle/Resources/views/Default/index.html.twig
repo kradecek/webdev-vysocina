@@ -1,2 +1,12 @@
 {% extends '::marketing-narrow.html.twig' %}
 
+
+{% block content %}
+    <div class="row">
+        <div class="span4 offset3">
+            <h4>Kontaktní formulář</h4>
+                {{ form(contactForm) }}
+        </div>
+    </div>
+{% endblock %}
+

@@ -81,6 +81,11 @@
         <h1>Setkání webových vývojářů z Vysočiny</h1>
         <p class="lead">Zveme Vás na neformální mini konferenci, na které se můžete potkat s kolegy z vašeho oboru a dozvědět se i praktické informace.</p>
         <a class="btn btn-large btn-success" href="#">Připravujeme ...</a>
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice text-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
       </div>
 
       <hr>
@@ -120,6 +125,8 @@
           <p>Kombinace moderních nástrojů</p>
         </div>
       </div>
+      
+      {% block content %}{% endblock %}
 
       <hr>
 

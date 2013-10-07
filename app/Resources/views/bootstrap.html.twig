@@ -1,0 +1,10 @@
+{# empty Twig template #}
+{% block button_attributes %}
+    id="{{ id }}"
+    name="{{ full_name }}"
+    class="btn btn-primary btn-small"
+    {% if (disabled) %}disabled="disabled" {% endif %}
+    {% for k, v in attr %}
+        {{ k }}="{{ v }}"
+    {% endfor %}
+{% endblock %}
