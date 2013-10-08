@@ -1,3 +1,11 @@
 webdev_vysocina_meeting_homepage:
     pattern:  /
     defaults: { _controller: WebdevVysocinaMeetingBundle:Default:index }
+    
+webdev_vysocina_meeting_contact:
+    pattern:  /kontakt
+    defaults: { _controller: WebdevVysocinaMeetingBundle:Default:contact}
+    
+webdev_vysocina_meeting_topics:
+    pattern:  /temata
+    defaults: { _controller: WebdevVysocinaMeetingBundle:Default:topics}

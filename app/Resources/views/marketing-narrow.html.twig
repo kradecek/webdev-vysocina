@@ -68,64 +68,34 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Kontakt</a></li>
+          <li {#class="active"#}><a href="{{ path('webdev_vysocina_meeting_homepage') }}">Home</a></li>
+          <li><a href="{{ path('webdev_vysocina_meeting_topics') }}">Témata</a></li>
+          <li><a href="{{ path('webdev_vysocina_meeting_contact') }}">Kontakt</a></li>
         </ul>
         <h3 class="muted">{% block heading %}WebDev Vysočina{% endblock %}</h3>
       </div>
 
       <hr>
 
+      {% block jumbotron %}
       <div class="jumbotron">
-        <h1>Setkání webových vývojářů z Vysočiny</h1>
-        <p class="lead">Zveme Vás na neformální mini konferenci, na které se můžete potkat s kolegy z vašeho oboru a dozvědět se i praktické informace.</p>
-        <a class="btn btn-large btn-success" href="#">Připravujeme ...</a>
-        {% for flashMessage in app.session.flashbag.get('notice') %}
-            <div class="flash-notice text-success">
-                {{ flashMessage }}
-            </div>
-        {% endfor %}
+        <h1>Setkání vývojářů z&nbsp;Vysočiny</h1>
+        <p class="lead">
+            Zveme Vás na neformální setkání vývojářů, na kterém se můžete potkat s kolegy z vašeho oboru 
+            a dozvědět se od nich praktické informace.
+        </p>
+        <a class="btn btn-large btn-success" href="{{ path('webdev_vysocina_meeting_topics') }}">Vyberte si téma</a>
       </div>
+      {% endblock %}
+      
+      {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-notice text-success">
+            {{ flashMessage }}
+        </div>
+      {% endfor %}
 
       <hr>
 
-      <div class="row-fluid marketing">
-        <div class="span6">
-          <h4>HTML 5 </h4>
-          <p>Nové značky a jejich význam / použití</p>
-
-          <h4>AngularJS vs jQuery</h4>
-          <p>Kde už použití jQuery není efektivní a kde je zbytečný AngularJS</p>
-
-          <h4>Stromové struktury v databázích</h4>
-          <p>Nabídneme vám praktické ukázky a srovnání různých přístupů</p>
-          
-          <h4>Axure</h4>
-          <p>Prototypování web aplikací</p>
-          
-          <h4>PostgreSQL</h4>
-          <p>Novinky ve verzi 9.x (Foreign data wrappers, ...)</p>
-        </div>
-
-        <div class="span6">
-          <h4>LESS, Grunt, Zend Coding</h4>
-          <p>Aneb jak si programátor/kodér může ulehčit práci</p>
-
-          <h4>PHP frameworky</h4>
-          <p>Zend, Nette, Symfony? Jaké mají výhody. Co používáte vy a proč?</p>
-
-          <h4>Nginx</h4>
-          <p>Výkonná alternativa Apache.</p>
-          
-          <h4>PostgreSQL</h4>
-          <p>Administrace (ochrana dat, analýza logů)</p>
-          
-          <h4>PostgreSQL + Node.js + socket.io</h4>
-          <p>Kombinace moderních nástrojů</p>
-        </div>
-      </div>
-      
       {% block content %}{% endblock %}
 
       <hr>

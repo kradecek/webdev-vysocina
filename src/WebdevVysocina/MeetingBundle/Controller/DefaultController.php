@@ -6,10 +6,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller {
 
-    public function indexAction(Request $request) {
+    public function indexAction() {
+
+        return $this->render('WebdevVysocinaMeetingBundle:Default:index.html.twig');
+    }
+    
+    /**
+    * @Template
+    */
+    public function topicsAction() {
+        return array();
+    }
+    /**
+    * @Template
+    */
+    public function contactAction(Request $request) {
         $defaultData = array('email' => '@');
         $form = $this->createFormBuilder($defaultData)
                 ->add('name', 'text', array(
@@ -50,7 +65,9 @@ class DefaultController extends Controller {
             }
         }
 
-        return $this->render('WebdevVysocinaMeetingBundle:Default:index.html.twig', array('contactForm' => $form->createView()));
+        return array('contactForm' => $form->createView());
     }
+    
+    
 
 }
