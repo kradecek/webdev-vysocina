@@ -3,6 +3,12 @@
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
 
+if (strpos($_SERVER['HTTP_HOST'], 'www.') !== 0 && strpos($_SERVER['HTTP_HOST'], 'localhost') !== 0) { 
+    header ('HTTP/1.1 301 Moved Permanently');
+    header ('Location: ' . "http://www." . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    exit;
+}  
+
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 
 // Use APC for autoloading to improve performance.
