@@ -3,7 +3,8 @@
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
 
-if (strpos($_SERVER['HTTP_HOST'], 'www.') !== 0 && strpos($_SERVER['HTTP_HOST'], 'localhost') !== 0) { 
+if (strpos($_SERVER['HTTP_HOST'], 'webdev-vysocina.cz') === 0) { 
+    // je to přes strpos, protože HTTP_HOST může obsahovat i port
     header ('HTTP/1.1 301 Moved Permanently');
     header ('Location: ' . "http://www." . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
     exit;
